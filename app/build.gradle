@@ -4,14 +4,17 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-  compileSdkVersion 28
+  compileSdkVersion Vers.compile_sdk
   defaultConfig {
     applicationId "com.github.satoshun.example.motif"
-    minSdkVersion 26
-    targetSdkVersion 28
+    minSdkVersion Vers.min_sdk
+    targetSdkVersion Vers.target_sdk
     versionCode 1
     versionName "1.0"
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+  }
+  dataBinding {
+    enabled = true
   }
   buildTypes {
     release {
@@ -24,13 +27,14 @@ android {
 dependencies {
   implementation Libs.kotlin
 
-  kapt 'com.uber.motif:motif-compiler:0.0.7'
-  implementation 'com.uber.motif:motif:0.0.7'
+  kapt Libs.motif_compiler
+  implementation Libs.motif
 
-  implementation 'androidx.appcompat:appcompat:1.0.0-alpha1'
-  implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
+  implementation Libs.appcompat
+  implementation Libs.constraintlayout
 
-  testImplementation 'junit:junit:4.12'
-  androidTestImplementation 'androidx.test:runner:1.1.0-alpha3'
-  androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha3'
+  testImplementation Libs.junit
+
+  androidTestImplementation Libs.test_runner
+  androidTestImplementation Libs.espresso
 }

@@ -1,6 +1,6 @@
 object Vers {
   val compile_sdk = 28
-  val min_sdk = 25
+  val min_sdk = 21
   val target_sdk = 28
 
   val kotlin = "1.2.61"
@@ -20,6 +20,9 @@ object Libs {
   val ui_coroutine = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Vers.couroutine}"
 
   val ktx = "androidx.core:core-ktx:1.0.0-rc01"
+
+  val motif = "com.uber.motif:motif:0.0.7"
+  val motif_compiler = "com.uber.motif:motif-compiler:0.0.7"
 
   val appcompat = "androidx.appcompat:appcompat:1.0.0-rc01"
   val recyclerview = "androidx.recyclerview:recyclerview:1.0.0-rc01"
