@@ -11,14 +11,13 @@ import motif.Expose
 class MainActivity : AppCompatActivity() {
   private lateinit var binding: MainActBinding
 
+  private val rootScope by lazy { RootFactoryImpl().create(this) }
+  private val context by lazy { rootScope.context() }
+  private val viewWrapper by lazy { rootScope.viewWrapper() }
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     binding = DataBindingUtil.setContentView(this, R.layout.main_act)
-
-    val rootScope = RootFactoryImpl().create(this)
-
-    rootScope.context()
-    rootScope.viewWrapper()
 
     val child = rootScope.create()
   }
